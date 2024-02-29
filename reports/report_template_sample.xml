@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report 
+            id="report_template_sample"
+            model="report.template.data"
+            string="Report Template Sample 1"
+            report_type="qweb-html"
+            name="report_template.report_template_qweb_sample_1" 
+            file="report_template.report_template_qweb_sample_1"
+            attachment_use="False"
+        />
+
+        <template id="report_template_qweb_sample_1">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        
+                        <div class="row">
+                            <div class="col-md-12 text-center" style="padding-bottom:50px;">
+                                <h4>Trial Balance Report</h4>
+                                <h5><t t-if="docs[0].start_date">From: <span t-esc="docs[0].start_date"/></t>
+                                <t t-if="docs[0].end_date"> Till: <span t-esc="docs[0].end_date"/></t></h5>
+                            </div>
+                        </div>
+                        
+                        <table class="table table-condensed">
+                            <!-- <colgroup>
+                                <col width='3%' />
+                                <col width='60%' />
+                                <col width='10%' />
+                                <col width='25%' />
+                            </colgroup> -->
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                </t>
+            </t>
+        </template>
+        
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Form view -->
+        <record id="report_template_wizrad_form_view" model="ir.ui.view">
+            <field name="name">report.template.wizrad.form.view</field>
+            <field name="model">report.template.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="from_date"/>
+                        </group>
+                        <group>
+                            <field name='to_date'/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Execute" type="object" name="print_report" class="oe_highlight" />
+                        <button string="Close" class="oe_link"  special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        
+        <!-- Action View -->
+        <record model="ir.actions.act_window" id="action_report_template_wizrad_view">
+            <field name="name">Generate Report Wizard</field>
+            <field name="res_model">report.template.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+    </data>
+</odoo>

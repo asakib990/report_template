@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- QWeb Reports -->
+        <record id="report_template_sample" model="ir.actions.report">
+            <field name="name">Certifications</field>
+            <field name="model">report.template.data</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">report_template.report_template_qweb_sample</field>
+            <field name="report_file">report_template.report_template_qweb_sample</field>
+            <field name="print_report_name">'Certification - %s' % (object.name)</field>
+            <!-- <field name="attachment">'certification.pdf'</field> -->
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Report Template -->
+        <!-- <template id="report_template_qweb_sample_1">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page ">
+                        
+                        <div class="row">
+                            <div class="col-md-12 text-center" style="padding-bottom:50px;">
+                                <h4>Report Template</h4>
+                                <h5>
+                                    <t t-if="docs[0].name">Name: <span t-esc="docs[0].name"/></t>
+                                </h5>
+                            </div>
+                        </div>
+                        
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                </t>
+            </t>
+        </template> -->
+        
+        <template id="report_template_qweb_sample_1">
+            <t t-call="web.html_container">
+                <div class="page">
+                    <t t-call="web.external_layout">
+                        <h2>Report title</h2>
+                        <t t-foreach="docs" t-as="o">
+                            <div class="article"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" >
+                                <p>This object's name is <span t-field="o.name"/></p>
+                            </div>
+
+                            <!-- Table -->
+                            <!-- <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>  -->
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+
+        <template id="report_template_qweb_sample_old">
+            <t t-call="web.html_container">
+                <!-- <div class="page"> -->
+                    <t t-foreach="docs" t-as="o">
+                        <!-- <div class="article"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')"> -->
+                            <p>This object's name is <span t-field="docs[0].name"/></p>
+                        <!-- </div> -->
+                    </t>
+                <!-- </div> -->
+            </t>
+        </template>
+
+
+        <template id="report_template_qweb_sample">
+            <t t-set="company" t-value="env.company"/>
+            <t t-call="web.html_container">
+                <t t-set="o" t-value="res_company"/>
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <p>This is a sample of an internal report.</p>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

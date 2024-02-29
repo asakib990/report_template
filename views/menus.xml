@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Report Wizard -->
+        <menuitem id='menu_report_template_wizrad'
+            name='Report Wizard' 
+            parent="app_name.menu_action_app_name" 
+            action="action_report_template_wizrad_view"/>
+        
+    </data>
+</odoo>
